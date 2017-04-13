@@ -1,0 +1,44 @@
+ 
+ *  Code to perform network linear response calculations for recurrent networks of
+ *  	 conductance-based LIF neurons, and matching Monte Carlo simulations
+ *
+ *  Copyright: A.K. Barreiro and C. Ly, 2017
+ *  Please cite: Barreiro, A.K. and C. Ly. "When do Correlations Increase with Firing 
+ *      Rates in Recurrent Networks?" PLoS Computational Biology, 2017.
+ *
+ * 
+ *  (Linear response code is adapted from code provided by the authors of:
+ *     Trousdale J, Hu Y, Shea-Brown E, Josic K. "Impact of network structure and cellular 
+ *         response on spike time correlations." PLoS Computational Biology. 2012;8(3):e1002408–e1002408. )
+ *
+ *  Monte Carlo: Cheng Ly (check dates: anything else to say here?)
+ *
+ 
+CONTAINS:
+
+/Examples/		Some examples of parameter files used in paper
+/MonteCarlo/		Code for Monte Carlo simulations
+/LinearResponse/	Code for linear response
+
+
+
+/Examples/asyNcPs_hom.mat				Parameter file: Asynchronous, homogeneous thresholds
+/Examples/asyNcPs_het.mat				Parameter file: Asynchronous, heterogeneous thresholds
+/Examples/strAsyPs_het.mat				Parameter file: Strong asynchronous, heterogeneous thresholds
+
+
+/MonteCarlo/create_ic.m					Create paramfile (must run first!!)
+/MonteCarlo/driver_monteCarlo.m				Driver script
+/MonteCarlo/mx_wnNoReflBndry.c				Actual routine to do sims
+
+
+/LinearResponse/LR_CondBased_caller.m	       	        Driver script
+/LinearResponse/LR_CondBased_fn.m		        Linear response for recurrent network
+/LinearResponse/LIF_avg_fr_analy.m			Firing rate of an LIF
+/LinearResponse/inv_f_trans_on_vector.m			Utility routine to do IFT
+/LinearResponse/calc_Power_CondLIF.cpp			Actual routines to compute power, susceptibility, etc..
+/LinearResponse/calc_Rate_CondLIF.cpp		
+/LinearResponse/calc_Susc_CondLIF_gE.cpp
+/LinearResponse/calc_Susc_CondLIF_gI.cpp	
+/LinearResponse/calc_Susc_CondLIF_sigE2.cpp
+/LinearResponse/calc_Susc_CondLIF_sigI2.cpp	
