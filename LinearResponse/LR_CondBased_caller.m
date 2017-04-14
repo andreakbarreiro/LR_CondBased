@@ -66,14 +66,20 @@ N = Ne+Ni;
 %
 
 if (network_state == 1)
-    regime_str='Asyn';    
-    paramfile='../Examples/asyNcPs.mat';
-    %load(paramfile);
+    regime_str='Asyn'; 
+    if (het_vs_hom)
+        paramfile='../Examples/asyNcPs_het.mat';
+    else
+        paramfile='../Examples/asyNcPs_hom.mat';
+    end
     sigmas = [.2*ones(Ne,1); .3*ones(Ni,1)];   % Noise std (mV)
 elseif (network_state == 2)
     regime_str='StrAs';
-    paramfile='../Examples/strAsyPs_het.mat';
-    %load(paramfile);
+    if (het_vs_hom)
+        paramfile='../Examples/strAsyPs_het.mat';
+    else
+        paramfile='../Examples/strAsyPs_hom.mat';
+    end
     sigmas = [.15*ones(Ne,1); .25*ones(Ni,1)];   % Noise std (mV)
 else
     error('Network state is not recognized...quitting');
@@ -86,12 +92,6 @@ sigmas = sigmas*sqrt(1000);
 % Adjust thresholds, which are accessed differently in Monte Carlo routine
 % (In paramfile, stored I cell thresholds first)
 load(paramfile,'Thres_new');
-
-% if (het_vs_hom == 1)
-%     thres_h=Thres_new(:,end);
-% else % homogeneous
-%     thres_h=Thres_new(:,1);
-% end
 
 vth_h=[Thres_new(Ni+1:end); Thres_new(1:Ni)]; %switch so E-cells 1st; 
 
