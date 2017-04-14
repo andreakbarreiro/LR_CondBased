@@ -1,0 +1,5 @@
+# Mex stuff
+*.mex*
+
+# OSX
+*.DS*
