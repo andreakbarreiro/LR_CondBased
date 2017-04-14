@@ -4,16 +4,6 @@
 #include <math.h>
 #include "mex.h"
 
-/*
- *  mx_wnNoReflBndry.c: Monte Carlo simulations of recurrent LIF networks
- *
- *  Copyright: A.K. Barreiro and C. Ly, 2017
- *
- *  If you use this code please cite: Barreiro, A.K. and C. Ly. "When do Correlations Increase with Firing 
- *      Rates in Recurrent Networks?" PLoS Computational Biology, 2017.
- * 
- */
-
 /* Box-Muller; faster than using sin,cos */
  void z_randn(double *normal_rv, double *nrm_rv2)
  {
